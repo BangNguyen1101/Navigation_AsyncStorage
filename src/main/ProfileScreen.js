@@ -1,8 +1,11 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { View, Text, Image, TouchableOpacity, StyleSheet } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
+import { AuthContext } from '../context/AuthContext';
 
 const ProfileScreen = () => {
+    const { logout } = useContext(AuthContext);  // Lấy hàm logout từ AuthContext
+
     return (
         <SafeAreaView style={styles.container}>
             {/* Phần Header chứa Avatar */}
@@ -23,7 +26,7 @@ const ProfileScreen = () => {
                 </Text>
 
                 {/* Button Sign Out */}
-                <TouchableOpacity style={styles.signOutButton}>
+                <TouchableOpacity style={styles.signOutButton} onPress={logout}>
                     <Text style={styles.signOutText}>Sign Out</Text>
                 </TouchableOpacity>
             </View>
