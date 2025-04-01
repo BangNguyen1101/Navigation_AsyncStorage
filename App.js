@@ -1,11 +1,14 @@
 import React from 'react';
-import { NavigationContainer } from '@react-navigation/native';
-import AppNavigator from './src/navigation/AppNavigator';
+import { View, Button } from 'react-native';
+import { AuthProvider } from './src/context/AuthContext';
+import AuthStackNavigator from './src/router/AuthStackNavigator';
 
 export default function App() {
   return (
-    <NavigationContainer>
-      <AppNavigator />
-    </NavigationContainer>
+    <AuthProvider>
+      <View style={{ flex: 1 }}>
+        <AuthStackNavigator />
+      </View>
+    </AuthProvider>
   );
 }
